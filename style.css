@@ -1,139 +1,184 @@
-body{
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background: #fae1dd;
+/* Styling dasar */
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fae1dd;
 }
-.container{
-    position: relative;
+
+.container {
+  position: relative;
 }
-.valentines{
-    position: relative;
-    top: 50px;
-    cursor: pointer;
-    animation: up 3s linear infinite;
+
+.valentines {
+  position: relative;
+  top: 50px;
+  cursor: pointer;
+  animation: up 3s linear infinite;
 }
-.envelope{
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #f08080;
-    display: grid;
-    place-items: center;
+
+/* Envelope */
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #f08080;
+  display: grid;
+  place-items: center;
 }
-.envelope::before{
-    content: '';
-    position: absolute;
-    width: 212px;
-    height: 212px;
-    background: #f08080;
-    transform: rotate(45deg);
-    top: -105px;
-    left: 44px;
-    border-radius: 30px 0 0 0;
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  width: 212px;
+  height: 212px;
+  background: #f08080;
+  transform: rotate(45deg);
+  top: -105px;
+  left: 44px;
+  border-radius: 30px 0 0 0;
 }
-.front{
-    position: absolute;
-    border-right: 180px solid #f4978e;
-    border-top: 95px solid transparent;
-    border-bottom: 100px solid transparent;
-    left: 120px;
-    top: 5px;
-    width: 0;
-    height: 0;
-    z-index: 10;
+
+/* Bagian depan amplop */
+.front {
+  position: absolute;
+  border-right: 180px solid #f4978e;
+  border-top: 95px solid transparent;
+  border-bottom: 100px solid transparent;
+  left: 120px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  z-index: 10;
 }
-.front::before{
-    position: absolute;
-    content: '';
-    border-left: 300px solid #fda996;
-    border-top: 195px solid transparent;
-    left: -120px;
-    top: -95px;
+
+.front::before {
+  position: absolute;
+  content: "";
+  border-left: 300px solid #fda996;
+  border-top: 195px solid transparent;
+  left: -120px;
+  top: -95px;
 }
-.card{
-    position: relative;
-    width: 250px;
-    height: 180px;
-    background: #fff;
-    border-radius: 2px;
-    display: grid;
-    place-items: center;
-    transition: 1s;
+
+/* Kartu dalam amplop */
+.card {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  background: #fff;
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+  transition: 1s;
+  padding: 10px;
 }
-.card::before{
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 2px solid #003049;
-    border-style: dashed;
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed #003049;
 }
-.valentines:hover .card{
-    transform: translateY(-100px);
+
+/* Efek hover kartu naik */
+.valentines:hover .card {
+  transform: translateY(-100px);
 }
-.card .text{
-    font-family: 'Brush Script MT', cursive;
-    font-size: 28px;
-    text-align: center;
-    line-height: 25px;
-    color: #003049;
+
+/* Teks dalam kartu */
+.text {
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  text-align: center;
+  line-height: 25px;
+  color: #003049;
 }
-.card .heart{
-    position: relative;
-    width: 35px;
-    height: 35px;
-    background: red;
-    bottom: 20px;
-    transform: rotate(45deg);
-    border-radius: 50% 0 0 50%;
+
+/* Container untuk ikon hati dan foto */
+/* Container ikon hati dan foto */
+.heart-container {
+  display: flex;
+  align-items: center;
+  gap: 7px; /* Jarak antara hati dan foto */
+  margin-top: 7px;
 }
-.card .heart::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: red;
-    border-radius: 0 50% 50% 0;
-    right: 0;
-    transform: rotate(-90deg);
-    transform-origin: top;
+
+/* Ikon hati */
+.heart {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: red;
+  transform: rotate(-45deg);
+  margin: 10px;
 }
-.card .heart::after{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: red;
-    right: -18px;
+
+/* Membuat bentuk hati lebih sempurna */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: red;
+  border-radius: 50%;
 }
-@keyframes up{
-    0%, 100%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-30px);
-    }
+
+/* Bagian atas kiri hati */
+.heart::before {
+  top: -20px;
+  left: 0;
 }
-.valentines::before{
-    content: '';
-    position: absolute;
-    width: 330px;
-    height: 25px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, .3);
-    top: 265px;
-    left: -15px;
-    animation: scale 3s linear infinite;
+
+/* Bagian atas kanan hati */
+.heart::after {
+  top: 0;
+  left: 20px;
 }
-@keyframes scale{
-    0%, 100%{
-        transform: scaleX(1);
-    }
-    50%{
-        transform: scaleX(.85);
-    }
+
+.photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  /* clip-path: path("M50 15 C70 -10, 110 10, 100 50 C95 90, 50 120, 50 120 C50 120, 5 90, 0 50 C-10 10, 30 -10, 50 15 Z"); */
+  border-radius: 50%;
+}
+
+/* Animasi amplop naik turun */
+@keyframes up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Efek bayangan */
+.valentines::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  top: 265px;
+  left: -15px;
+  animation: scale 3s linear infinite;
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.85);
+  }
 }
